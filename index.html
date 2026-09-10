@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>HelpDesk | Acesso</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gerenciador de Tarefas - Login" />
+  <style>
+    :root { --primary: #667eea; --primary-dark: #5a6fd6; --ink: #1a1a2e; --muted: #718096; --line: #e2e8f0; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: var(--ink); font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #eef2ff 0%, #f7fafc 55%, #e6fffa 100%); }
+    .box { width: min(100%, 420px); padding: 40px; border: 1px solid rgba(102, 126, 234, .16); border-radius: 16px; background: rgba(255, 255, 255, .94); box-shadow: 0 20px 60px rgba(26, 32, 63, .14); }
+    .login { text-align: center; }
+    .brand-mark { width: 56px; height: 56px; margin: 0 auto 18px; display: grid; place-items: center; border-radius: 16px; color: #fff; font-size: 24px; background: linear-gradient(135deg, var(--primary), #764ba2); box-shadow: 0 10px 24px rgba(102, 126, 234, .28); }
+    .login h2 { margin: 0 0 8px; font-size: 26px; letter-spacing: -.3px; }
+    .login-subtitle { margin: 0 0 28px; color: var(--muted); font-size: 14px; }
+    .login form { text-align: left; }
+    .field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .field label { color: #4a5568; font-size: 13px; font-weight: 600; }
+    .field label i { width: 16px; margin-right: 6px; color: var(--primary); text-align: center; }
+    .login input[type="text"], .login input[type="password"] { width: 100%; height: 46px; padding: 0 14px; border: 2px solid var(--line); border-radius: 8px; outline: none; color: var(--ink); background: #f7fafc; font: inherit; transition: border-color .2s, box-shadow .2s, background .2s; }
+    .login input[type="text"]:focus, .login input[type="password"]:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(102, 126, 234, .14); }
+    .login input[type="submit"] { width: 100%; height: 46px; margin-top: 8px; border: 0; border-radius: 8px; color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); font: 600 15px inherit; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+    .login input[type="submit"]:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(102, 126, 234, .28); }
+    .group { display: flex; justify-content: space-between; gap: 12px; margin-top: 16px; font-size: 13px; }
+    .group a { color: var(--primary-dark); text-decoration: none; }
+    .group a:hover { text-decoration: underline; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 24px 0 16px; color: #a0aec0; font-size: 12px; }
+    .divider::before, .divider::after { content: ''; height: 1px; flex: 1; background: var(--line); }
+    .social-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-social { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; border: 1px solid var(--line); border-radius: 8px; color: #4a5568; background: #fff; font-size: 13px; font-weight: 600; text-decoration: none; transition: border-color .2s, background .2s, transform .2s; }
+    .btn-social:hover { border-color: var(--primary); background: #f7f8ff; transform: translateY(-1px); }
+    .btn-google i { color: #db4437; } .btn-github i { color: #24292e; }
+    @media (max-width: 480px) { body { padding: 16px; } .box { padding: 28px 22px; } .social-group { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <div class="login">
+    <div class="loginbx">
+      <div class="brand-mark"><i class="fa-solid fa-ticket"></i></div>
+      <h2>
+        Acesso ao HelpDesk
+      </h2>
+      <p class="login-subtitle">Entre para gerenciar seus chamados</p>
+      <form id="login-form">
+        <div class="field">
+          <label for="username"><i class="fa-solid fa-user"></i>Usuário</label>
+          <input id="username" type="text" placeholder="Digite seu usuário" autocomplete="username" />
+        </div>
+        <div class="field">
+          <label for="password"><i class="fa-solid fa-lock"></i>Senha</label>
+          <input id="password" type="password" placeholder="Digite sua senha" autocomplete="current-password" />
+        </div>
+        <input type="submit" value="Entrar"/>
+      </form>
+      
+      <div class="group">
+        <a href="#" id="forgot-password">Esqueci a senha</a> |
+        <a href="#" id="signup">cadastrar</a>
+      </div>
+
+      <div class="divider">ou entre com</div>
+
+      <div class="social-group">
+        <a href="http://localhost:3000/auth/google" class="btn-social btn-google">
+          <i class="fa-brands fa-google"></i> Google
+        </a>
+        <a href="http://localhost:3000/auth/github" class="btn-social btn-github">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('login-form');
+    const usernameInput = document.querySelector('.login input[type="text"]');
+    const passwordInput = document.querySelector('.login input[type="password"]');
+    const forgotPasswordLink = document.getElementById('forgot-password');
+    const signupLink = document.getElementById('signup');
+
+    // Permite apenas caracteres alfanuméricos nos campos de entrada
+    function sanitizeInput(input) {
+      input.value = input.value.replace(/[^a-zA-Z0-9]/g, '');
+    }
+
+    usernameInput.addEventListener('input', () => sanitizeInput(usernameInput));
+    passwordInput.addEventListener('input', () => sanitizeInput(passwordInput));
+
+    // Validação simples do formulário
+    function validateForm() {
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (!username || !password) {
+        alert('Por favor, preencha todos os campos.');
+        return false;
+      }
+
+      if (username.length < 3 || password.length < 4) {
+        alert('Usuário ou senha muito curtos.');
+        return false;
+      }
+
+      return true;
+    }
+
+    // Libera o acesso ao painel depois da validação local.
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault(); 
+      if (validateForm()) {
+        window.location.href = '/fronend/index.html';
+      }
+    });
+
+    // Link: "Esqueci a senha"
+    forgotPasswordLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      alert('Função de recuperação de senha ainda não implementada.');
+    });
+
+    // Link: "Cadastrar"
+    signupLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      alert('Função de cadastro ainda não implementada.');
+    });
+  });
+</script>
+
+</body>
+</html>
