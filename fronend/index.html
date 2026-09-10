@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão de Chamados</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-ticket-alt"></i>
+                <span>HelpDesk</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="active" data-tab="dashboard">
+                    <a href="#">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li data-tab="novo-chamado">
+                    <a href="#">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Novo Chamado</span>
+                    </a>
+                </li>
+                <li data-tab="usuarios">
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        <span>Usuários</span>
+                    </a>
+                </li>
+                <li data-tab="tecnicos">
+                    <a href="#">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Técnicos</span>
+                    </a>
+                </li>
+                <li data-tab="departamentos">
+                    <a href="#">
+                        <i class="fas fa-building"></i>
+                        <span>Departamentos</span>
+                    </a>
+                </li>
+                <li data-tab="equipamentos">
+                    <a href="#">
+                        <i class="fas fa-desktop"></i>
+                        <span>Equipamentos</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <img src="https://ui-avatars.com/api/?name=Admin&background=667eea&color=fff" alt="Admin">
+                <div>
+                    <span class="user-name">Administrador</span>
+                    <span class="user-role">Suporte TI</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <h1 id="pageTitle">Dashboard de Chamados</h1>
+                <span class="breadcrumb" id="breadcrumb">Home / Chamados</span>
+            </div>
+            <div class="top-bar-right">
+                <button class="btn-notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <button class="btn-refresh" onclick="carregarDados()">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Conteúdo Dinâmico -->
+        <div id="contentContainer">
+            <!-- Dashboard será carregado aqui -->
+        </div>
+    </main>
+
+    <!-- Modal para CRUD -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Título</h2>
+                <button class="modal-close" onclick="fecharModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo do modal -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

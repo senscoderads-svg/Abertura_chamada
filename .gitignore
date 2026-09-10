@@ -1,0 +1,10 @@
+node_modules/
+*.log
+.env
+.env.*
+!.env.example
+
+# Arquivos gerados pelo sistema operacional e pelo editor
+.DS_Store
+Thumbs.db
+.vscode/
